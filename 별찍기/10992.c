@@ -3,7 +3,7 @@ int main(void)
 {
 	int num;
 	scanf("%d", &num);
-	for (int i = 0; i < num; i++) { //꼭대기 줄
+	for (int i = 0; i < num; i++) { //print first line
 		if (i < num-1)
 			printf(" ");
 		else
@@ -19,7 +19,7 @@ int main(void)
 				printf(" ");
 			printf("*\n");
 		}
-		for (int i = 0; i < num * 2 - 1; i++)//마지막 줄
+		for (int i = 0; i < num * 2 - 1; i++)//print last line
 			printf("*");
 	}
 }
