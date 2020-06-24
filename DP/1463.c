@@ -1,3 +1,4 @@
+//bottom-up방식
 #include <stdio.h>
 #define MIN(X,Y) ((X) < (Y) ? (X) : (Y))
 int dp[1000001];
