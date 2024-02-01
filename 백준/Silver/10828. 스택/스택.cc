@@ -1,36 +1,10 @@
 #include <iostream>
+#include <stack>
 
 using namespace std;
-int s=0;
-int a[10001]; //스택
-void push(int x){
-    a[s]=x;
-    s++;
-}
-
-int pop(){
-    if(s==0) return -1;
-    int x = a[s-1];
-    s--;
-    return x;
-}
-
-int size(){
-    return s;
-}
-
-int empty(){
-    if(s==0) return 1;
-    return 0;
-}
-
-int top(){
-    if(s==0) return -1;
-    return a[s-1];
-}
-
 
 int main(){
+    stack<int> st;
     int n;
     string command;
     cin >> n;
@@ -38,24 +12,28 @@ int main(){
     for(int i=0; i<n; i++){
         cin >> command;
         if(command == "push"){
-            int num;
-            cin >> num;
-            push(num);
+            int x; cin >> x;
+            st.push(x);
         }
         if(command == "pop"){
-            cout << pop() << "\n";
+            if(st.empty()) cout << -1 << "\n";
+            else{
+                cout<<st.top()<<"\n";
+                st.pop();
+            }
         }
         if(command == "size"){
-            cout << size() << "\n";
-        }
-        if(command == "empty"){
-            cout << empty() << "\n";
+            cout << st.size() << "\n";
         }
         if(command == "top"){
-            cout << top() << "\n";
+            if(st.empty()) cout << -1 << "\n";
+            else cout << st.top() <<"\n";
+        }
+        if(command == "empty"){
+            if(st.empty()) cout << 1 << "\n";
+            else cout << 0 << "\n";
         }
         
     }
     
-    return 0;
 }
