@@ -3,23 +3,18 @@
 using namespace std;
 
 int main(){
-    int n;
+    string n;
+    
     while(true){
         cin >> n;
+        if(n=="0") return 0;
         int sum = 0;
-        if(n==0){
-            break;
-        }
-        while(true){
-            if(n%10 == 1) sum+=2;
-            else if(n%10 == 0) sum+=4;
+        for(int i=0; i<n.length(); i++){
+            if(n[i]=='1') sum += 2;
+            else if(n[i]=='0') sum+=4;
             else sum+=3;
-            
-            if(n<10) break;
-            n /= 10;
-            sum+=1;
         }
-        cout << sum+2 << "\n";
+        cout << sum+2+n.length()-1 << "\n";
     }
     return 0;
 }
